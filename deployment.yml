@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: pn-apps
-        image: gcr.io/pinknode-infra-gke/apps:latest
+        image: gcr.io/pinknode-infra-gke/pn-apps-custom:latest
         ports:
         - containerPort: 80
         resources:
