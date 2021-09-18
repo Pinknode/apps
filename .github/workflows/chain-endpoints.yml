@@ -9,13 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: check
-      env:
-        CI_LOG: 123
       run: |
         yarn install --immutable | grep -v 'YN0013'
         yarn ci:chainEndpoints
     - name: send custom message
-      if: ${{ failure() }}
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
