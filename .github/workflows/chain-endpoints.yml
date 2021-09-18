@@ -12,11 +12,11 @@ jobs:
       run: |
         yarn install --immutable | grep -v 'YN0013'
         yarn ci:chainEndpoints
-    - name: send custom message
+    - name: Notify Telegram
+      if: ${{ failure() }}
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          The ${{ github.event_name }} event triggered final step.
-          echo An WSS API endpoint failed
+          A WSS API endpoint failed
