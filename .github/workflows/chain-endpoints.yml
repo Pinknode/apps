@@ -14,12 +14,12 @@ jobs:
       run: |
         yarn install --immutable | grep -v 'YN0013'
         yarn ci:chainEndpoints
-
-    - name: issue
+    - name: send custom message
       if: ${{ failure() }}
-      uses: JasonEtco/create-an-issue@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT_BOT }}
+      uses: appleboy/telegram-action@master
       with:
-        filename: .github/chain-endpoints.md
-        update_existing: true
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          The ${{ github.event_name }} event triggered final step.
+          echo An WSS API endpoint failed
