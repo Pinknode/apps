@@ -20,7 +20,12 @@ export function createPolkadot (t: TFunction): EndpointOption {
     info: 'polkadot',
     text: t('rpc.polkadot.parity', 'Polkadot', { ns: 'apps-config' }),
     providers: {
-      Pinknode: 'wss://rpc.pinknode.io/polkadot/explorer'
+      // Parity: 'wss://rpc.polkadot.io',
+      // OnFinality: 'wss://polkadot.api.onfinality.io/public-ws',
+      // 'Patract Elara': 'wss://pub.elara.patract.io/polkadot',
+      // // Dwellir: 'wss://polkadot-rpc.dwellir.com',
+      // 'light client': 'light://substrate-connect/polkadot',
+      Pinknode: 'wss://rpc.pinknode.io/polkadot/explorer' 
     },
     linked: [
       // (1) system parachains (none available yet)

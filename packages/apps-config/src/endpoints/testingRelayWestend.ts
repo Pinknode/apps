@@ -22,9 +22,117 @@ export function createWestend (t: TFunction): EndpointOption {
     info: 'westend',
     text: t('rpc.westend', 'Westend', { ns: 'apps-config' }),
     providers: {
-      Pinknode: 'wss://rpc.pinknode.io/westend/explorer'
+      // Parity: 'wss://westend-rpc.polkadot.io',
+      // 'Patract Elara': 'wss://pub.elara.patract.io/westend', // No balances showing on Westend, runtime 9110
+      // OnFinality: 'wss://westend.api.onfinality.io/public-ws',
+      Pinknode: 'wss://rpc.pinknode.io/westend/explorer',
+      // 'light client': 'light://substrate-connect/westend'
+      // 'NodeFactory(Vedran)': 'wss://westend.vedran.nodefactory.io/ws', // https://github.com/polkadot-js/apps/issues/5580
     },
     teleport: [1000],
-    linked: []
+    linked: [
+      // (1) system parachains (none available yet)
+      // ...
+      // (2) common good, leave as second group
+      // {
+      //   info: 'westmint',
+      //   paraId: 1000,
+      //   text: t('rpc.westend.shell', 'Westmint', { ns: 'apps-config' }),
+      //   providers: {
+      //     Parity: 'wss://westmint-rpc.polkadot.io',
+      //     'Patract Elara': 'wss://pub.elara.patract.io/westmint'
+      //   },
+      //   teleport: [-1]
+      // },
+      // (3) parachains with id, see Rococo (info here maps to the actual "named icon")
+      //
+      // NOTE: Added alphabetical based on chain name
+      // {
+      //   info: 'basilisk',
+      //   paraId: 2097,
+      //   text: t('rpc.westend.basilisk', 'Basilisk Egg', { ns: 'apps-config' }),
+      //   providers: {
+      //     HydraDX: 'wss://rpc-01.basilisk-testnet.hydradx.io'
+      //   }
+      // },
+      // {
+      //   info: 'charcoal',
+      //   paraId: 2086,
+      //   text: t('rpc.westend.charcoal', 'Charcoal', { ns: 'apps-config' }),
+      //   providers: {
+      //     Centrifuge: 'wss://fullnode-collator.charcoal.centrifuge.io'
+      //   }
+      // },
+      // {
+      //   info: 'integritee',
+      //   paraId: 2081,
+      //   text: t('rpc.westend.integritee', 'Integritee Network', { ns: 'apps-config' }),
+      //   providers: {
+      //     Integritee: 'wss://teerw1.integritee.network'
+      //   }
+      // },
+      // {
+      //   info: 'interBTC',
+      //   isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6261
+      //   paraId: 2094,
+      //   text: t('rpc.westend.interbtc', 'InterBTC', { ns: 'apps-config' }),
+      //   providers: {
+      //     Interlay: 'wss://api-westend.interlay.io/parachain'
+      //   }
+      // },
+      // {
+      //   info: 'moonshadow',
+      //   isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6181
+      //   paraId: 2002,
+      //   text: t('rpc.westend.moonshadow', 'Moonshadow', { ns: 'apps-config' }),
+      //   providers: {
+      //     PureStake: 'wss://wss.moonshadow.testnet.moonbeam.network'
+      //   }
+      // },
+      // {
+      //   info: 'opal',
+      //   homepage: 'https://unique.network/',
+      //   paraId: 2096,
+      //   text: t('westend-opal.unique.network', 'OPAL by UNIQUE', { ns: 'apps-config' }),
+      //   providers: {
+      //     Unique: 'wss://westend-opal.unique.network'
+      //   }
+      // },
+      // {
+      //   info: 'westendStandard',
+      //   paraId: 2094,
+      //   text: t('rpc.westend.standard', 'Standard ', { ns: 'apps-config' }),
+      //   providers: {
+      //     'Standard Protocol': 'wss://rpc.westend.standard.tech'
+      //   }
+      // },
+      // {
+      //   info: 'karura',
+      //   isUnreachable: true, // https://github.com/polkadot-js/apps/issues/5830
+      //   paraId: 2005,
+      //   text: t('rpc.westend.wendala', 'Wendala', { ns: 'apps-config' }),
+      //   providers: {
+      //     'Acala Foundation': 'wss://karura-westend-rpc.aca-staging.network'
+      //   }
+      // },
+      // {
+      //   info: 'whala',
+      //   isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6181
+      //   paraId: 2013,
+      //   text: t('rpc.westend.whala', 'Whala', { ns: 'apps-config' }),
+      //   providers: {
+      //     Phala: 'wss://whala.phala.network/ws'
+      //   }
+      // },
+      // {
+      //   info: 'kilt',
+      //   homepage: 'https://www.kilt.io/',
+      //   paraId: 2085,
+      //   text: t('rpc.westend.kilt', 'WILT', { ns: 'apps-config' }),
+      //   providers: {
+      //     'KILT Protocol': 'wss://westend.kilt.io:9977'
+      //   }
+      // }
+    ]
   };
 }
