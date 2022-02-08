@@ -5,6 +5,7 @@ import type { TFunction } from 'i18next';
 import type { LinkOption } from './types';
 
 import { createCustom, createDev, createOwn } from './development';
+import { createPinknode } from './pinknode';
 import { createProduction } from './production';
 import { createKusamaRelay, createPolkadotRelay } from './productionRelays';
 import { createTesting } from './testing';
@@ -15,6 +16,15 @@ export { CUSTOM_ENDPOINT_KEY } from './development';
 export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = true): LinkOption[] {
   return [
     ...createCustom(t),
+    {
+      isDisabled: false,
+      isHeader: true,
+      isSpaced: true,
+      text: 'Hosted by Pinknode',
+      textBy: '',
+      value: ''
+    },
+    ...createPinknode(t, firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
